@@ -68,7 +68,7 @@ spec:
       - "--logtostderr"
       - "--driver_type=DAG"
       - "--mlmd_url=metadata-grpc-service.kubeflow.svc.cluster.local:8080"
-      - "--parent_context_name="
+      - "--parent_context_name=$(params.kfp-parent-context-name)"
       - "--execution_name=kfp-$(params.kfp-execution-name)"
       - "--output_path_execution_id=$(results.execution-id.path)"
       - "--output_path_context_name=$(results.context-name.path)"
@@ -83,6 +83,10 @@ spec:
   - name: kfp-task-spec
     type: string
     description: task spec
+  - name: kfp-parent-context-name
+    type: string
+  - name: kfp-execution-name
+    type: string
   - name: kfp-executor-spec
     type: string
     description: executor spec
@@ -92,10 +96,6 @@ spec:
   - name: kfp-executor-template-namespace
     type: string
     description: namespace of task template
-  - name: kfp-execution-name
-    type: string
-  - name: kfp-parent-context-name
-    type: string
   results:
     - name: execution-id
       description: execution id
@@ -150,7 +150,7 @@ spec:
         - name: kfp-executor-template-name
           value: "executor-template-1"
         - name: kfp-executor-template-namespace
-          value: "kubeflow"
+          value: "$(context.pipelineRun.namespace)"
         - name: kfp-task-spec
           value: "{\"taskInfo\":{\"name\":\"Producer\"},\"inputs\":{\"parameters\":{\"text\":{\"componentInputParameter\":\"text\"}}},\"outputs\":{\"parameters\":{\"output_value\":{\"type\":\"STRING\"}}},\"executorLabel\":\"Producer\"}"
         - name: kfp-executor-spec
@@ -171,7 +171,7 @@ spec:
         - name: kfp-executor-template-name
           value: "executor-template-2"
         - name: kfp-executor-template-namespace
-          value: "kubeflow"
+          value: "$(context.pipelineRun.namespace)"
         - name: kfp-task-spec
           value: "{\"taskInfo\":{\"name\":\"Consumer\"},\"inputs\":{\"parameters\":{\"input_value\":{\"taskOutputParameter\":{\"producerTask\":\"Producer\",\"outputParameterKey\":\"output_value\"}}}},\"executorLabel\":\"Consumer\"}"
         - name: kfp-executor-spec
