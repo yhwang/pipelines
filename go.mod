@@ -18,7 +18,7 @@ require (
 	github.com/go-openapi/validate v0.20.1
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
-	github.com/golang/protobuf v1.4.2
+	github.com/golang/protobuf v1.4.3
 	github.com/google/addlicense v0.0.0-20200906110928-a0294312aa76
 	github.com/google/go-cmp v0.5.2
 	github.com/google/gofuzz v1.1.0 // indirect
@@ -33,11 +33,12 @@ require (
 	github.com/minio/minio-go v6.0.14+incompatible
 	github.com/peterhellberg/duration v0.0.0-20191119133758-ec6baeebcd10
 	github.com/pkg/errors v0.9.1
-	github.com/prometheus/client_golang v1.0.0
+	github.com/prometheus/client_golang v1.8.0
 	github.com/robfig/cron v1.2.0
 	github.com/sirupsen/logrus v1.6.0
 	github.com/spf13/viper v1.6.2
 	github.com/stretchr/testify v1.6.1
+	github.com/tektoncd/pipeline v0.21.0
 	golang.org/x/net v0.0.0-20200602114024-627f9648deb9
 	google.golang.org/api v0.20.0
 	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013
