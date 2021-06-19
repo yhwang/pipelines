@@ -251,6 +251,9 @@ class RoutedPage extends React.Component<{ route?: RouteConfig }, RouteComponent
       updateToolbar: this._updateToolbar.bind(this),
     };
     const route = this.props.route;
+    console.log(`RoutePage props: ${JSON.stringify(this.props, null, 2)}`);
+    console.log(`RoutePage childprops: ${JSON.stringify(childProps, null, 2)}`);
+    console.log(`RoutePage route: ${JSON.stringify(route, null, 2)}`);
 
     return (
       <div className={classes(commonCss.page)}>

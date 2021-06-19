@@ -46,6 +46,7 @@ class AllExperimentsAndArchive extends Page<
   }
 
   public render(): JSX.Element {
+    console.log(`AllExperimentsAndArchive: ${JSON.stringify(this.props, null, 2)}`);
     return (
       <div className={classes(commonCss.page, padding(20, 't'))}>
         <MD2Tabs

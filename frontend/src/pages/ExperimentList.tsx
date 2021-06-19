@@ -180,6 +180,7 @@ export class ExperimentList extends Page<{ namespace?: string }, ExperimentListS
     // Fetch the list of experiments
     let response: ApiListExperimentsResponse;
     let displayExperiments: DisplayExperiment[];
+    console.log(`ExperimentList: ${JSON.stringify(this.props, null, 2)}`);
     try {
       // This ExperimentList page is used as the "All experiments" tab
       // inside ExperimentAndRuns. Here we only list unarchived experiments.
@@ -290,6 +291,7 @@ export class ExperimentList extends Page<{ namespace?: string }, ExperimentListS
 
 const EnhancedExperimentList: React.FC<PageProps> = props => {
   const namespace = React.useContext(NamespaceContext);
+  console.log(`EnhancedExperimentList: namespace: ${namespace}`);
   return <ExperimentList key={namespace} {...props} namespace={namespace} />;
 };
 

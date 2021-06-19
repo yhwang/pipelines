@@ -150,7 +150,7 @@ export class ExperimentList extends React.PureComponent<ExperimentListProps, Exp
         return '';
       }
     }
-
+    console.log(`_loadExperiments: ${JSON.stringify(this.props, null, 2)}`);
     try {
       let response: ApiListExperimentsResponse;
       response = await Apis.experimentServiceApi.listExperiment(
